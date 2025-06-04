@@ -7,13 +7,11 @@ public class SimilarityChecker {
         int longer = Math.max(len1, len2);
         int shorter = Math.min(len1, len2);
 
+        if(longer > shorter*2) return 0;
+
         double ratio = (double) (longer - shorter) / shorter;
-        return getResult(ratio);
+        return (1 - ratio) * 60;
     }
 
-    private double getResult(double ratio) {
-        double result = (1 - ratio) * 60;
-        if(result < 0) result =0;
-        return result;
-    }
+
 }
